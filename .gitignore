@@ -30,3 +30,4 @@ htmlcov/
 .dmypy.json
 dmypy.json
 .DS_Store
+.omx/

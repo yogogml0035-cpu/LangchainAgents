@@ -4,18 +4,19 @@ This module creates a deep research agent with custom tools and prompts
 for conducting web research with strategic thinking and context management.
 """
 
-from datetime import datetime
 import os
+from datetime import datetime
 
-from langchain.chat_models import init_chat_model
 from deepagents import create_deep_agent
+from langchain.chat_models import init_chat_model
 
 from research_agent.prompts import (
-    RESEARCHER_INSTRUCTIONS,
     RESEARCH_WORKFLOW_INSTRUCTIONS,
+    RESEARCHER_INSTRUCTIONS,
     SUBAGENT_DELEGATION_INSTRUCTIONS,
 )
 from research_agent.tools import tavily_search, think_tool
+from utils import format_messages
 
 os.environ["DEEPSEEK_API_KEY"] = os.getenv("DEEPSEEK_API_KEY", "sk-c045276d62aa4d00bc71f000ec925497")
 os.environ["TAVILY_API_KEY"] = os.getenv("TAVILY_API_KEY", "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")
@@ -56,8 +57,6 @@ agent = create_deep_agent(
     system_prompt=INSTRUCTIONS,
     subagents=[research_sub_agent],
 )
-
-from utils import format_messages
 
 result = agent.invoke(                  
     {

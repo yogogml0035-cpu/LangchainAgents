@@ -41,6 +41,12 @@ packages = ["research_agent"]
 "*" = ["py.typed"]
 
 [tool.ruff]
+exclude = [
+    "build",
+    "dist",
+    "*.egg-info",
+    "deep_research_example-*",
+]
 lint.select = [
     "E",    # pycodestyle
     "F",    # pyflakes
@@ -63,3 +69,7 @@ lint.ignore = [
 
 [tool.ruff.lint.pydocstyle]
 convention = "google"
+
+[[tool.mypy.overrides]]
+module = ["tavily"]
+ignore_missing_imports = true
