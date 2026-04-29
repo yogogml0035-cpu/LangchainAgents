@@ -1,2 +1,0 @@
-"""Agent Chat backend package."""
-

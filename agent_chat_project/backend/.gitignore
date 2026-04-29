@@ -1,9 +1,0 @@
-.env
-.venv/
-__pycache__/
-.pytest_cache/
-.ruff_cache/
-.coverage
-htmlcov/
-storage/tasks/*
-!storage/tasks/.gitkeep
